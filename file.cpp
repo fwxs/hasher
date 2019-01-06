@@ -104,7 +104,7 @@ void File::hash_directory(const std::string &path, const std::string &hash_type)
     }
 
     std::string fullpath;
-    std::cout << "[*] Hashing " << files << " files in " << path << '\n';
+    std::cout << "[*] Hashing " << files - 2 << " files in " << path << '\n';
 
     while(files--){
         fullpath = path + '/' + dir_ent[files]->d_name;
@@ -120,7 +120,7 @@ void File::hash_directory(const std::string &path, const std::string &hash_type)
             }
 
             std::cout << "\t[+] Hashing " << dir_ent[files]->d_name;
-            std::cout << "\tsize " << File::size(fullpath) << "b" << '\n';
+            std::cout << "\tsize " << File::size(fullpath) << " bytes" << '\n';
             std::cout << "\t[-] Output: " << File::hash(f_stream, hash_type) << '\n';
             std::cout << std::endl;
         }
